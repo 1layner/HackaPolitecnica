@@ -1,2 +1,0 @@
-# HackaPolitecnica
-E-COMMERCE HackaPolitecnica
