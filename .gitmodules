@@ -1,0 +1,3 @@
+[submodule "HackaPolitecnica"]
+	path = HackaPolitecnica
+	url = git://github.com/1layner/HackaPolitecnica
