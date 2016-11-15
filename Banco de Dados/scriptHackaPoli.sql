@@ -1,6 +1,5 @@
 CREATE DATABASE `hackapoli` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-
 CREATE TABLE `tbl_pedido` (
   `codPedido` int(8) NOT NULL AUTO_INCREMENT,
   `precoTotal` float DEFAULT NULL,
@@ -8,6 +7,7 @@ CREATE TABLE `tbl_pedido` (
   `precoFrete` float DEFAULT NULL,
   `codUsuario` int(11) DEFAULT NULL,
   `codTransp` int(11) DEFAULT NULL,
+  `dtaPedido` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`codPedido`),
   KEY `codUsuario` (`codUsuario`),
   KEY `codTransp` (`codTransp`),
@@ -16,24 +16,20 @@ CREATE TABLE `tbl_pedido` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `tbl_produto` (
-  `codProduto` int(8) NOT NULL AUTO_INCREMENT,
-  `nomeProduto` varchar(45) DEFAULT NULL,
-  `codBarra` varchar(45) DEFAULT NULL,
-  `preco` float DEFAULT NULL,
-  `precoPromocional` float DEFAULT NULL,
+  `codProduto` int(8) NOT NULL,
+  `nomeProduto` varchar(45) NOT NULL,
+  `preco` float NOT NULL,
+  `peso` float DEFAULT NULL,
   `tamanho` varchar(45) DEFAULT NULL,
   `estoque` int(11) DEFAULT NULL,
   `nomeImg` varchar(45) DEFAULT NULL,
   `path` varchar(45) DEFAULT NULL,
-  `descricao` varchar(240) DEFAULT NULL,
+  `descricao` varchar(240) NOT NULL,
   `tags` varchar(100) DEFAULT NULL,
   `categoria` varchar(45) DEFAULT NULL,
   `compras` int(14) DEFAULT NULL,
-  `estado` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`codProduto`),
-  UNIQUE KEY `codProduto_UNIQUE` (`codProduto`)
+  PRIMARY KEY (`codProduto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `tbl_produto_pedido` (
   `codPedido` int(11) DEFAULT NULL,
@@ -44,13 +40,13 @@ CREATE TABLE `tbl_produto_pedido` (
   CONSTRAINT `tbl_produto_pedido_ibfk_2` FOREIGN KEY (`codProduto`) REFERENCES `tbl_produto` (`codProduto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `tbl_transportadora` (
   `codTransp` int(8) NOT NULL AUTO_INCREMENT,
   `nomeTransp` varchar(45) DEFAULT NULL,
   `enderecoTransp` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`codTransp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `tbl_usuario` (
   `codUsuario` int(8) NOT NULL AUTO_INCREMENT,
@@ -73,4 +69,7 @@ CREATE TABLE `tbl_usuario` (
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `senha` (`senha`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 
