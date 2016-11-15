@@ -1,6 +1,6 @@
 CREATE DATABASE `hackapoli` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-CREATE TABLE `tbl_pedido` (
+CREATE TABLE  `tbl_pedido` (
   `codPedido` int(8) NOT NULL AUTO_INCREMENT,
   `precoTotal` float DEFAULT NULL,
   `precoDesconto` float DEFAULT NULL,
