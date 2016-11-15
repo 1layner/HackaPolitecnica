@@ -1,65 +1,76 @@
-create database hackapoli;
+CREATE DATABASE `hackapoli` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-use hackapoli;
 
-create table tbl_usuario(
-	codUsuario int(8) auto_increment,
-    nomeCliente varchar(45),
-    contato1 int(9),
-    contato2 int(9),
-    cpf int(9) unique,
-    cnpj int(14) unique,
-    cep int(8),
-    tipoLogradouro varchar(15),
-    logradouro varchar(45),
-    numero int(15),
-    cidade varchar(45),
-    estado varchar(45),
-    email varchar(45) unique,
-    senha int(8) unique,
-	primary key(codUsuario)
-);
+CREATE TABLE `tbl_pedido` (
+  `codPedido` int(8) NOT NULL AUTO_INCREMENT,
+  `precoTotal` float DEFAULT NULL,
+  `precoDesconto` float DEFAULT NULL,
+  `precoFrete` float DEFAULT NULL,
+  `codUsuario` int(11) DEFAULT NULL,
+  `codTransp` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codPedido`),
+  KEY `codUsuario` (`codUsuario`),
+  KEY `codTransp` (`codTransp`),
+  CONSTRAINT `tbl_pedido_ibfk_1` FOREIGN KEY (`codUsuario`) REFERENCES `tbl_usuario` (`codUsuario`),
+  CONSTRAINT `tbl_pedido_ibfk_2` FOREIGN KEY (`codTransp`) REFERENCES `tbl_transportadora` (`codTransp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table tbl_transportadora(
-	codTransp int(8) auto_increment,
-    nomeTransp varchar(45),
-    enderecoTransp varchar(45),
-    primary key(codTransp)
-);
+CREATE TABLE `tbl_produto` (
+  `codProduto` int(8) NOT NULL AUTO_INCREMENT,
+  `nomeProduto` varchar(45) DEFAULT NULL,
+  `codBarra` varchar(45) DEFAULT NULL,
+  `preco` float DEFAULT NULL,
+  `precoPromocional` float DEFAULT NULL,
+  `tamanho` varchar(45) DEFAULT NULL,
+  `estoque` int(11) DEFAULT NULL,
+  `nomeImg` varchar(45) DEFAULT NULL,
+  `path` varchar(45) DEFAULT NULL,
+  `descricao` varchar(240) DEFAULT NULL,
+  `tags` varchar(100) DEFAULT NULL,
+  `categoria` varchar(45) DEFAULT NULL,
+  `compras` int(14) DEFAULT NULL,
+  `estado` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`codProduto`),
+  UNIQUE KEY `codProduto_UNIQUE` (`codProduto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table tbl_produto(
-	codProduto int(8) auto_increment,
-    nomeProduto varchar(45),
-    codBarra varchar(45),
-    preco float,
-    precoPromocional float,
-    largura float, 
-    altura float,
-    comprimento float,
-    estoque int,
-    nomeImg varchar(45),
-    path varchar(45),
-    descricao varchar(240),
-    codUsuario int,
-    primary key(codProduto),
-    foreign key(codUsuario) references tbl_usuario(codUsuario)
-);
 
-create table tbl_pedido(
-	codPedido int(8) auto_increment,
-    precoTotal float,
-    precoDesconto float,
-    precoFrete float,
-    codUsuario int,
-    codTransp int,
-    primary key(codPedido),
-    foreign key(codUsuario) references tbl_usuario(codUsuario),
-    foreign key(codTransp) references tbl_transportadora(codTransp)
-);
+CREATE TABLE `tbl_produto_pedido` (
+  `codPedido` int(11) DEFAULT NULL,
+  `codProduto` int(11) DEFAULT NULL,
+  KEY `codPedido` (`codPedido`),
+  KEY `codProduto` (`codProduto`),
+  CONSTRAINT `tbl_produto_pedido_ibfk_1` FOREIGN KEY (`codPedido`) REFERENCES `tbl_pedido` (`codPedido`),
+  CONSTRAINT `tbl_produto_pedido_ibfk_2` FOREIGN KEY (`codProduto`) REFERENCES `tbl_produto` (`codProduto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table tbl_produto_pedido(
-	codPedido int,
-    codProduto int,
-    foreign key(codPedido) references tbl_pedido(codPedido),
-    foreign key(codProduto) references tbl_produto(codProduto)
-);
+
+CREATE TABLE `tbl_transportadora` (
+  `codTransp` int(8) NOT NULL AUTO_INCREMENT,
+  `nomeTransp` varchar(45) DEFAULT NULL,
+  `enderecoTransp` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`codTransp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `tbl_usuario` (
+  `codUsuario` int(8) NOT NULL AUTO_INCREMENT,
+  `nomeCliente` varchar(45) NOT NULL,
+  `contato1` int(9) DEFAULT NULL,
+  `contato2` int(9) DEFAULT NULL,
+  `cgc` int(14) NOT NULL,
+  `cep` int(8) DEFAULT NULL,
+  `tipoLogradouro` varchar(15) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
+  `numero` int(15) DEFAULT NULL,
+  `cidade` varchar(45) DEFAULT NULL,
+  `email` varchar(45) NOT NULL,
+  `senha` int(8) NOT NULL,
+  `logadouro alternativo` varchar(45) DEFAULT NULL,
+  `tipo logadouro alternativo` varchar(45) DEFAULT NULL,
+  `cep alternativo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`codUsuario`),
+  UNIQUE KEY `cnpj` (`cgc`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `senha` (`senha`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
