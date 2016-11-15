@@ -1,6 +1,6 @@
 CREATE DATABASE `hackapoli` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-CREATE TABLE  `tbl_pedido` (
+CREATE TABLE `tbl_pedido` (
   `codPedido` int(8) NOT NULL AUTO_INCREMENT,
   `precoTotal` float DEFAULT NULL,
   `precoDesconto` float DEFAULT NULL,
@@ -8,6 +8,7 @@ CREATE TABLE  `tbl_pedido` (
   `codUsuario` int(11) DEFAULT NULL,
   `codTransp` int(11) DEFAULT NULL,
   `dtaPedido` timestamp NULL DEFAULT NULL,
+  `dataHoraEntrega` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`codPedido`),
   KEY `codUsuario` (`codUsuario`),
   KEY `codTransp` (`codTransp`),
@@ -27,7 +28,6 @@ CREATE TABLE `tbl_produto` (
   `descricao` varchar(240) NOT NULL,
   `tags` varchar(100) DEFAULT NULL,
   `categoria` varchar(45) DEFAULT NULL,
-  `compras` int(14) DEFAULT NULL,
   PRIMARY KEY (`codProduto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -46,7 +46,6 @@ CREATE TABLE `tbl_transportadora` (
   `enderecoTransp` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`codTransp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `tbl_usuario` (
   `codUsuario` int(8) NOT NULL AUTO_INCREMENT,
@@ -69,6 +68,7 @@ CREATE TABLE `tbl_usuario` (
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `senha` (`senha`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 
