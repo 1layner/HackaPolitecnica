@@ -26,10 +26,10 @@ public class PedidoEntity extends BaseEntity<Long> {
 	@Column(name="precoFrete", nullable=false)
 	private float precoFrete;
 	
-	@Column(name="codUsuario", length=11, nullable=false)
+	@Column(name="codUsuario", length=8, nullable=false)
 	private int codUsuario;
 	
-	@Column(name="codTransp", length=11, nullable=false)
+	@Column(name="codTransp", length=8, nullable=false)
 	private int codTransp;
 	
 	@Column(name="dtaPedido", nullable=false)
@@ -38,12 +38,15 @@ public class PedidoEntity extends BaseEntity<Long> {
 	@Column(name="dataHoraEntrega", nullable=false)
 	private Calendar dataHoraEntrega;
 	
+	@Column(name="descricao", length=240, nullable=false)
+	private String descricao;
+	
 	public PedidoEntity(){
 		
 	}
 	
 	public PedidoEntity(float precoTotal, float precoDesconto, float precoFrete, int codUsuario, int codTransp,
-			Date dtaPedido, Calendar dataHoraEntrega) {
+			Date dtaPedido, Calendar dataHoraEntrega, String descricao) {
 		super();
 		this.precoTotal = precoTotal;
 		this.precoDesconto = precoDesconto;
@@ -52,6 +55,7 @@ public class PedidoEntity extends BaseEntity<Long> {
 		this.codTransp = codTransp;
 		this.dtaPedido = dtaPedido;
 		this.dataHoraEntrega = dataHoraEntrega;
+		this.descricao = descricao;
 	}
 
 
@@ -112,6 +116,13 @@ public class PedidoEntity extends BaseEntity<Long> {
 		this.dataHoraEntrega = dataHoraEntrega;
 	}
 	
+	public String getDescricao(){
+		return descricao;
+	}
+	
+	public void setDescricao(String descricao){
+		this.descricao = descricao;
+	}
 	
 	
 }
