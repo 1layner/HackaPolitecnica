@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `hackapoli`.`tbl_pedido` (
   `codTransp` INT(8) NULL DEFAULT NULL,
   `dtaPedido` TIMESTAMP NULL,
   `dataHoraEntrega` TIMESTAMP NULL,
-  descricao VARCHAR(240),
+  `descricao` VARCHAR(240) NULL,
   PRIMARY KEY (`codPedido`),
   INDEX `codUsuario` (`codUsuario` ASC),
   INDEX `codTransp` (`codTransp` ASC),
@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `hackapoli`.`tbl_pedido` (
     REFERENCES `hackapoli`.`tbl_transportadora` (`codTransp`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
 
 -- -----------------------------------------------------
 -- Table `hackapoli`.`tbl_produto`
@@ -102,11 +103,12 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `hackapoli`.`tbl_produto_pedido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hackapoli`.`tbl_produto_pedido` (
-  `codPedido` INT(8) NULL,
-  `codProduto` INT(8) NULL DEFAULT NULL,
-  quantidade INT,
+  `codPedido` INT(8) NOT NULL,
+  `codProduto` INT(8) NOT NULL,
+  `quantidade` INT NULL,
   INDEX `codPedido` (`codPedido` ASC),
   INDEX `codProduto` (`codProduto` ASC),
+  PRIMARY KEY (`codPedido`, `codProduto`),
   CONSTRAINT `tbl_produto_pedido_ibfk_1`
     FOREIGN KEY (`codPedido`)
     REFERENCES `hackapoli`.`tbl_pedido` (`codPedido`),
