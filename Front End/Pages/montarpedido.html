@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="projeto">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="estiloPages.css" rel="stylesheet">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Ecomerce FoddsTreeds</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="jquery/jquery-1.12.1.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+    <script src="angular.min.js"></script>
+    <script src="js/projeto.js" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+
+<body>
+
+    <br>
+    <br>
+
+    <div class="col-lg-2">
+    </div>
+    <!-- Div com style, alterar -->
+    <div class="col-lg-8" style="" id="montarPedido">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="btn btn-default"><a href="#">Monte seu pedido</a></li>
+
+          <li role="presentation" class="btn btn-default"><a href="#">Cardapio do Dia</a></li>
+
+          <li role="presentation" class="btn btn-default dropdown-toggle">
+            <a class="dropdown-toggle" data-toggle="dropdown">Cardapios Expeciais
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Cardapio Vegetariano</a></li>
+              <li><a href="#">Cardapio Vegano</a></li>
+              <li><a href="#">Cardapio Ligth</a></li> 
+            </ul>
+          </li>
+
+          <li role="presentation" class="btn btn-default dropdown-toggle">
+            <a class="dropdown-toggle" data-toggle="dropdown">Montagens expeciais
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#cardapio-vegetariano">Cardapio Vegetariano</a></li>
+              <li><a href="#cardapio vegano" ng-click="">Cardapio Vegano</a></li>
+              <li><a href="#">Cardapio Ligth</a></li> 
+            </ul>
+          </li>
+        </ul>
+    </div>
+
+    
+    <!-- Div com style, alterar -->
+    <div class="col-lg-12" id="montarPedido2">
+        <div class="col-lg-3">
+        </div>
+        
+        <div class="col-lg-6" align="center">
+          <div id="cardapiododia">
+              <p>Cardapio do dia</p>
+          </div>
+
+          <div id="cardapiododiavegetariano">
+            <p>Cardapio do dia vegetariano</p>
+          </div>
+
+          <div id="cardapiododiavegano">
+            <p>cardapio do dia vegano</p>
+          </div>
+
+          <div id="cardapiododialigth">
+            <p>Cardapio do dia ligth</p>
+          </div>
+
+          <div id="monteseupedido">
+            <p>Monte seu pedido</p>
+          </div>
+
+          <div id="monteseupedidovegetariano"> 
+            <p>Monte seu pedido vegetariano</p>
+          </div>
+
+          <div id="monteseupedidovegano">
+            <p>Monte seu pedido vegano</p>
+          </div>
+
+          <div id="monteseupedidoligth">
+            <p>Monte seu pedido ligth</p>
+          </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

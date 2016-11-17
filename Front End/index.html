@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Controller">
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Importação do Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<!-- Importação do Angular Routes -->
+	<script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>
+	<!-- Importação do Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Importação do Controlador -->
+	<script src="Control/Controllers.js"></script>
+	<!-- Importação do CSS -->
+	<link href="stilo.css" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<title>Ecommerce</title>
+
+</head>
+<body background="Img/comida.jpeg">
+
+	 <div class="container-fluid" background="Img/comida.jpeg">
+		<nav class="navbar "  >
+			<div id="botoes" class="hidden-xs col-lg-offset-4 col-sm-offset-4">
+				<a href="#/MontarPedido"><button class="btn btn-default">Montar Pedido</button></a>
+				<button class="btn btn-default">Meus Pedidos</button>
+				<button class="btn btn-default">Carrinho</button>
+				<a href="#/Login"><button class="btn btn-default">Login</button></a>
+			</div>
+			<div class="row hidden-xs col-lg-offset-4 col-sm-offset-4" id="buscar">
+				<input type="text" name="search" placeholder="Buscar" size="44">
+				<button class="btn btn-default glyphicon glyphicon-search"></button>
+			</div>
+
+	</div>
+	
+	<div class="container-fluid">
+		<nav class="navbar navbar-fixed-top visible-xs">
+			<div class="dropdown col-xs-4">
+  				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Menu <span class="caret"></span></button>
+				<ul class="dropdown-menu">
+				<li><a href="#/Contato">Montar Pedido</a></li>
+				<li><a href="#">Meus Pedidos</a></li>
+				<li><a href="#">Carrinho</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">Login</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<input type="text" name="dropdownText" placeholder="Buscar" size="15">
+				<button class="btn btn-default glyphicon glyphicon-search col-sm-2"></button>
+			</div>
+
+			</nav>
+
+	</div>
+		<!--
+		<ul>
+			<li><a href="#/Home">Home</a></li>
+			<li><a href="#/Contato">Contato</a></li>
+			<li><a href="#/Sobre">Sobre</a></li>		
+		</ul>
+		-->
+		<div class="row col-lg-12 col-sm-4" id="teste" ng-view="">
+			
+		</div>
+
+</body>
+</html>

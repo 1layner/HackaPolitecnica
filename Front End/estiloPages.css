@@ -1,0 +1,47 @@
+h1{
+	color: black;
+}
+
+a{
+	color: black;
+}
+a:hover{
+	color: black;
+}
+
+#carousel{
+	padding-top: 5%;
+}
+
+#cadastrar 	td ,label{
+	padding-top: 4%;
+	color: black;
+}
+
+#botoesCadastro{
+	padding-top: 5%;
+	padding-left: 23%;
+}
+
+
+
+
+#telaLogin{
+	padding-top: 5%;
+	color: black;
+}
+
+#botoesLogin{
+	padding-left: 14%;
+	padding-top: 2%;
+}
+
+
+#montarPedido{
+	padding-left: 5%;
+	padding-top: 3%;
+}
+
+#montarPedido2{
+	padding-top: 5%;
+}
