@@ -4,9 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.hackapolitecnica.config.BaseEntity;
+
 @Entity
 @Table(name="tbl_pedido_produto")
-public class PedidoProdutoEntity {
+public class PedidoProdutoEntity extends BaseEntity<PedidoProdutoKey> {
 
 	private static final long serialVersionUID=201602010251L;
 	

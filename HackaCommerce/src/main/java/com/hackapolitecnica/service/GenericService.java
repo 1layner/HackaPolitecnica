@@ -20,8 +20,9 @@ public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serial
 	@Autowired
 	protected JpaRepository<T, ID> genericRepository;
 	
-	@RequestMapping(value="/todosProdutos", method = RequestMethod.GET)
+	@RequestMapping(/*value="/todosProdutos",*/ method = RequestMethod.GET)
 	public List<T> listaTodos(){
+		this.LOGGER.debug("Requesting all records");
 		return this.genericRepository.findAll();
 	}
 	

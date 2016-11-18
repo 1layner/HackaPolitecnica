@@ -9,7 +9,7 @@ import com.hackapolitecnica.config.BaseEntity;
 
 @Entity
 @Table(name="tbl_usuario")
-@AttributeOverride(name="id", column=@Column(name="codUsuario"))
+@AttributeOverride(name="codUsuario", column=@Column(name="id"))
 public class UsuarioEntity extends BaseEntity<Long> {
 
 	private static final long serialVersionUID=1L;
@@ -23,7 +23,7 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	@Column(name="contato2", length=9, nullable=false)
 	private int contato2;
 	
-	@Column(name="cgc", length=14, nullable=false)
+	@Column(name="cgc", length=14, nullable=false, unique=true)
 	private int cgc;
 	
 	@Column(name="cep", length=8, nullable=false)
@@ -41,10 +41,10 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	@Column(name="cidade", length=45, nullable=false)
 	private String cidade;
 	
-	@Column(name="email", length=45, nullable=false)
+	@Column(name="email", length=45, nullable=false, unique=true)
 	private String email;
 	
-	@Column(name="senha", length=8, nullable=false)
+	@Column(name="senha", length=8, nullable=false, unique=true)
 	private String senha;
 	
 	@Column(name="logadouro alternativo", length=45, nullable=false)

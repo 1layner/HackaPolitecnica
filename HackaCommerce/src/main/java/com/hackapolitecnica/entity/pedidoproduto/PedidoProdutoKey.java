@@ -40,4 +40,5 @@ public class PedidoProdutoKey extends BaseKey {
 	public void setCodProduto(int codProduto) {
 		this.codProduto = codProduto;
 	}
+
 }
