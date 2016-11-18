@@ -9,7 +9,7 @@ import com.hackapolitecnica.config.BaseEntity;
 
 @Entity
 @Table(name="tbl_usuario")
-@AttributeOverride(name="codUsuario", column=@Column(name="id"))
+@AttributeOverride(name="id", column=@Column(name="codUsuario"))
 public class UsuarioEntity extends BaseEntity<Long> {
 
 	private static final long serialVersionUID=1L;
